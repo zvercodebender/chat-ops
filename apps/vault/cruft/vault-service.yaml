@@ -1,0 +1,29 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-lb8bd
+    field.cattle.io/ipAddresses: "null"
+    field.cattle.io/targetDnsRecordIds: "null"
+    field.cattle.io/targetWorkloadIds: '["deployment:xlr:vault"]'
+  creationTimestamp: "2020-04-17T16:59:26Z"
+  labels:
+    cattle.io/creator: norman
+  name: vault
+  namespace: xlr
+  resourceVersion: "16477736"
+  selfLink: /api/v1/namespaces/xlr/services/vault
+  uid: 416c0224-bab8-49d5-b1cd-f922c5847b70
+spec:
+  clusterIP: None
+  ports:
+  - name: default
+    port: 42
+    protocol: TCP
+    targetPort: 42
+  selector:
+    workloadID_vault: "true"
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

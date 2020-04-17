@@ -1,0 +1,30 @@
+﻿apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-lb8bd
+    field.cattle.io/ingressState: '{"dmF1bHQveGxyL3hpcC5pby8vLzgyMDA=":"deployment:xlr:vault"}'
+    field.cattle.io/publicEndpoints: '[{"addresses":["192.168.1.11"],"port":80,"protocol":"HTTP","serviceName":"xlr:ingress-6986a26dbe2c42da7bd62536220aa650","ingressName":"xlr:vault","hostname":"vault.xlr.192.168.1.11.xip.io","path":"/","allNodes":true}]'
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  creationTimestamp: "2020-04-17T16:06:31Z"
+  generation: 1
+  labels:
+    cattle.io/creator: norman
+  name: vault
+  namespace: xlr
+  resourceVersion: "16470175"
+  selfLink: /apis/extensions/v1beta1/namespaces/xlr/ingresses/vault
+  uid: 50100a60-eefd-4895-aed0-2707e0f4154c
+spec:
+  rules:
+  - host: vault.xlr.192.168.1.11.xip.io
+    http:
+      paths:
+      - backend:
+          serviceName: ingress-6986a26dbe2c42da7bd62536220aa650
+          servicePort: 8200
+        path: /
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.1.11
